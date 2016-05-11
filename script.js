@@ -1,10 +1,9 @@
 var todos = {
     todosList: [],
 
-    toggle: function(){
+    toggle: function() {
 
     },
-
     createTodos: function(name) {
         var todoName = prompt("Description?");
         var todo = {
@@ -15,13 +14,18 @@ var todos = {
         this.readTodos(this.todosList);
     },
     readTodos: function(todosList) {
-      var line = "";
-        for (var x = 0, y = this.todosList.length; x < y; x++) {
-          line += todosList[x].name + "<br>";
+        var line = "";
+        var toggleButton;
+        for (var x = 0, y = todosList.length; x < y; x++) {
+            if (todosList[x].completed) {
+                toggleButton = "Y";
+            } else {
+                toggleButton = "N";
+            }
+            line += "<button id=" + "btn" + todosList[x] + ">" + toggleButton + "</button> " + todosList[x].name + "<br>";
         }
         document.getElementById("todoList").innerHTML = line;
     },
-
     updateTodos: function() {
         var num = prompt("Which one?");
         var info = prompt("Description?");
