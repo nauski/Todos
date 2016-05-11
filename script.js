@@ -1,6 +1,10 @@
 var todos = {
     todosList: [],
 
+    toggle: function(){
+
+    },
+
     createTodos: function(name) {
         var todoName = prompt("Description?");
         var todo = {
@@ -8,29 +12,33 @@ var todos = {
             completed: false
         };
         this.todosList.push(todo);
-        this.readTodos();
+        this.readTodos(this.todosList);
     },
-    readTodos: function() {
+    readTodos: function(todosList) {
+      var line = "";
         for (var x = 0, y = this.todosList.length; x < y; x++) {
-            console.log("#" + (x + 1), this.todosList[x].name, "\t \t \t [ ]");
+          line += todosList[x].name + "<br>";
         }
+        document.getElementById("todoList").innerHTML = line;
     },
 
     updateTodos: function() {
         var num = prompt("Which one?");
         var info = prompt("Description?");
         this.todosList[num].name = info;
-        this.readTodos();
+        this.readTodos(this.todosList);
     },
     deleteTodos: function() {
         var num = prompt("Which one?");
         this.todosList.splice(num, 1);
-        this.readTodos();
+        this.readTodos(this.todosList);
     }
 
 
 }
-
+var toggle = document.getElementById("toggle").addEventListener("click", function() {
+    todos.toggle();
+});
 var createTodoButton = document.getElementById("createTodo").addEventListener("click", function() {
     todos.createTodos();
 });
