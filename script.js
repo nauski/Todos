@@ -2,7 +2,11 @@ var todos = {
     todosList: [],
 
     createTodos: function(name) {
-        var todo = {name: name, completed: false};
+        var todoName = prompt("Description?");
+        var todo = {
+            name: todoName,
+            completed: false
+        };
         this.todosList.push(todo);
         this.readTodos();
     },
@@ -12,14 +16,27 @@ var todos = {
         }
     },
 
-    updateTodos: function(num, info) {
-      this.todosList[num].name = info;
-      this.readTodos();
+    updateTodos: function() {
+        var num = prompt("Which one?");
+        var info = prompt("Description?");
+        this.todosList[num].name = info;
+        this.readTodos();
     },
-    deleteTodos: function(num) {
-      this.todosList.splice(num, 1);
-      this.readTodos();
+    deleteTodos: function() {
+        var num = prompt("Which one?");
+        this.todosList.splice(num, 1);
+        this.readTodos();
     }
 
 
 }
+
+var createTodoButton = document.getElementById("createTodo").addEventListener("click", function() {
+    todos.createTodos();
+});
+var updateTodoButton = document.getElementById("updateTodo").addEventListener("click", function() {
+    todos.updateTodos();
+});
+var deleteTodoButton = document.getElementById("deleteTodo").addEventListener("click", function() {
+    todos.deleteTodos();
+});
