@@ -1,16 +1,24 @@
 <html>
-  <head>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>Todos</title>
-  </head>
-    <body>
-      <button id="toggle">Toggle</button>
-      <button id="createTodo">Create a Todo</button>
-      <button id="updateTodo">Update a Todo</button>
-      <button id="deleteTodo">Delete a Todo</button>
+</head>
 
-      <h3> Todos: </h3>
-      <p id="todoList"></p>
+<body>
 
-      <script src="script.js"></script>
-    </body>
+    <ul>
+        <li id="toggle" class="menu"><a href="#toggle">Toggle</a></li>
+        <li id="createTodo" class="menu"><a href="#create">Create</a></li>
+        <li id="updateTodo" class="menu"><a href="#update">Update</a></li>
+        <li id="deleteTodo" class="menu"><a href="#delete">Delete</a></li>
+    </ul>
+    <div id="content">
+    <ul>
+        <p id="todoList"></p>
+    </ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+
 </html>
